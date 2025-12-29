@@ -2,6 +2,39 @@ sources:
   - name: demo_src
     description: Data from DB airflights
     tables:
+      - name: boarding_passes
+        description: boarding passes models
+        columns:
+          - name: ticket_no
+            description: ticket number
+          - name: flight_id
+            description: flight id
+          - name: boarding_no
+            description: boarding number
+          - name: seat_no
+            description: seat number
+      - name: flight_seats
+        description: flight seats models
+        columns:
+          - name: aircraft_code
+            description: aircraft code
+          - name: seat_no
+            description: seat number
+          - name: fare_conditions
+            description: fare conditions
+      - name: airports_data
+        description: airports data models
+        columns:
+          - name: airport_code
+            description: airport code
+          - name: airport_name
+            description: airport name
+          - name: city
+            description: city
+          - name: coordinates
+            description: coordinates
+          - name: timezone
+            description: timezone
       - name: bookings
         description: bookings models
         columns:
