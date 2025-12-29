@@ -1,0 +1,100 @@
+sources:
+  - name: demo_src
+    description: Data from DB airflights
+    tables:
+      - name: bookings
+        description: bookings models
+        columns:
+          - name: book_ref
+            description: booking reference
+          - name: book_date
+            description: booking date
+          - name: total_amount
+            description: total amount
+        freshness: 
+          warn_after:
+            count: 6000000
+            period: hour
+          error_after:
+            count: 10000
+            period: day
+          filter: current_timestamp::date - book_date::date < 30000
+        loaded_at_field: book_date::timestamp
+      - name: ticket_flights
+        description: ticket flights models
+        columns:
+          - name: ticket_no
+            description: ticket number
+          - name: flight_id
+            description: flight id
+          - name: fare_conditions
+            description: fare conditions
+          - name: amount
+            description: amount
+      - name: tickets
+        description: tickets models
+        columns:
+          - name: ticket_no
+            description: ticket number
+          - name: book_ref
+            description: booking reference
+          - name: passenger_id
+            description: passenger id
+          - name: passenger_name
+            description: passenger name
+          - name: contact_data
+            description: contact data
+      - name: aircrafts
+        description: aircrafts models
+        columns:
+          - name: aircraft_code
+            description: aircraft code
+          - name: model
+            description: aircraft model
+          - name: range
+            description: aircraft range
+      - name: airports
+        description: airports data
+        columns:
+          - name: airport_code
+            description: airport code
+          - name: airport_name
+            description: airport name
+          - name: city
+            description: city
+          - name: coordinates
+            description: coordinates
+          - name: timezone
+            description: timezone
+      - name: seats
+        description: seats data
+        columns:
+          - name: aircraft_code
+            description: aircraft code
+          - name: seat_no
+            description: seat number
+          - name: fare_conditions
+            description: fare conditions
+      - name: flights
+        description: flights data
+        columns:
+          - name: flight_id
+            description: flight id
+          - name: flight_no
+            description: flight number
+          - name: scheduled_departure
+            description: scheduled departure
+          - name: scheduled_arrival
+            description: scheduled arrival
+          - name: departure_airport
+            description: departure airport
+          - name: arrival_airport
+            description: arrival airport
+          - name: status
+            description: status
+          - name: aircraft_code
+            description: aircraft code
+          - name: actual_departure
+            description: actual departure
+          - name: actual_arrival
+            description: actual arrival
