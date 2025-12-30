@@ -1,0 +1,9 @@
+models:
+  - name: fct_bookings
+    description: Fact table of bookings
+    docs:
+      show: true
+      node_color: red
+    latest_version: 1
+    versions:
+      - v: 1
