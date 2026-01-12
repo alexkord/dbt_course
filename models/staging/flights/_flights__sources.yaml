@@ -1,5 +1,6 @@
 sources:
   - name: demo_src
+    schema: demo_src
     description: Data from DB airflights
     tables:
       - name: boarding_passes
@@ -46,7 +47,7 @@ sources:
             description: total amount
         freshness: 
           warn_after:
-            count: 6000000
+            count: 24
             period: hour
           error_after:
             count: 10000
@@ -79,6 +80,15 @@ sources:
             description: contact data
       - name: aircrafts
         description: aircrafts models
+        columns:
+          - name: aircraft_code
+            description: aircraft code
+          - name: model
+            description: aircraft model
+          - name: range
+            description: aircraft range
+      - name: aircrafts_data
+        description: aircrafts data
         columns:
           - name: aircraft_code
             description: aircraft code
@@ -123,6 +133,60 @@ sources:
             description: departure airport
           - name: arrival_airport
             description: arrival airport
+          - name: status
+            description: status
+          - name: aircraft_code
+            description: aircraft code
+          - name: actual_departure
+            description: actual departure
+          - name: actual_arrival
+            description: actual arrival
+      - name: routes
+        description: routes data
+        columns:
+          - name: flight_no
+            description: flight number
+          - name: departure_airport
+            description: departure airport
+          - name: departure_airport_name
+            description: departure airport name
+          - name: departure_city
+            description: departure city
+          - name: arrival_airport
+            description: arrival airport
+          - name: arrival_airport_name
+            description: arrival airport name
+          - name: arrival_city
+            description: arrival city
+          - name: airline
+            description: airline
+          - name: duration
+            description: duration
+          - name: days_of_week
+            description: days of week
+      - name: flights_v
+        description: flights data
+        columns:
+          - name: flight_id
+            description: flight id
+          - name: flight_no
+            description: flight number
+          - name: scheduled_departure
+            description: scheduled departure
+          - name: scheduled_arrival
+            description: scheduled arrival
+          - name: departure_airport
+            description: departure airport
+          - name: departure_airport_name
+            description: departure airport name
+          - name: departure_city
+            description: departure city
+          - name: arrival_airport
+            description: arrival airport
+          - name: arrival_airport_name
+            description: arrival airport name
+          - name: arrival_city
+            description: arrival city
           - name: status
             description: status
           - name: aircraft_code
