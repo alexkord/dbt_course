@@ -12,7 +12,8 @@ SELECT
       book_ref,
       book_date,
       total_amount
-FROM {{ source('demo_src', 'bookings') }}
+FROM 
+    {{ source('demo_src', 'bookings') }}
 {% if is_incremental() %}
     WHERE book_date > (SELECT max(book_date) FROM {{ source('demo_src', 'bookings') }}) - interval '97 day'
 {% endif %}

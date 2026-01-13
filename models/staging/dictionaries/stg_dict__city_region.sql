@@ -7,4 +7,4 @@ SELECT
     city,
     region
 FROM 
-{{ ref('city_region') }}
+    {{ ref('city_region') }}

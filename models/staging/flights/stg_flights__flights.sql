@@ -14,6 +14,7 @@ SELECT
         "aircraft_code",
         "actual_departure",
         "actual_arrival"
-FROM {{ source('demo_src', 'flights') }}
+FROM 
+    {{ source('demo_src', 'flights') }}
 
     
